@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <title>Dark Tech Zone Toolkit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.05) 0%, transparent 20%);
+    }
+    
+    /* ===== MAIN CONTAINER ===== */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-top: 15px;
+    }
+    
+    .main-title {
+      font-family: 'Audiowide', cursive;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ff2a6d;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+      margin-bottom: 5px;
+    }
+    
+    .subtitle {
+      color: #05d9e8;
+      font-size: 1.1rem;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    
+    .admin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 42, 109, 0.2);
+      color: #ff2a6d;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid rgba(255, 42, 109, 0.3);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    
+    .admin-btn:hover {
+      background: rgba(255, 42, 109, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 42, 109, 0.3);
+    }
+    
+    /* ===== SEARCH SECTION ===== */
+    .search-section {
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    
+    .search-container {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 16px 20px 16px 45px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(5, 217, 232, 0.3);
+      border-radius: 25px;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .search-input:focus {
+      border-color: #ff2a6d;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(255, 42, 109, 0.3);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #05d9e8;
+      font-size: 1.1rem;
+    }
+    
+    /* ===== CATEGORY SECTIONS ===== */
+    .category-section {
+      margin-bottom: 40px;
+    }
+    
+    .category-title {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 20px;
+      padding-left: 10px;
+      border-left: 4px solid #ff2a6d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* ===== TOOL GRID - EXACTLY LIKE SCREENSHOT ===== */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 CARDS PER ROW */
+      gap: 20px;
+      padding: 0 10px;
+    }
+    
+    /* TOOL CARD - EXACT MATCH TO SCREENSHOT */
+    .tool-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      height: 220px; /* Fixed height like screenshot */
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Hover effect */
+    .tool-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 42, 109, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 42, 109, 0.2);
+    }
+    
+    /* LARGE ICON - EXACT SIZE FROM SCREENSHOT */
+    .tool-icon-container {
+      width: 100px; /* Large icon size */
+      height: 100px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .tool-icon {
+      width: 70px; /* Big icon */
+      height: 70px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 15px rgba(5, 217, 232, 0.4));
+      transition: all 0.3s ease;
+    }
+    
+    .tool-card:hover .tool-icon {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 20px rgba(255, 42, 109, 0.5));
+    }
+    
+    /* TOOL NAME - EXACT STYLE FROM SCREENSHOT */
+    .tool-name {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.3;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+    /* ===== REPORT SECTION ===== */
+    .report-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 50px 10px;
+      border: 2px solid rgba(255, 42, 109, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .report-title {
+      color: #ff2a6d;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .report-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .report-form input,
+    .report-form select,
+    .report-form textarea {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1.5px solid rgba(5, 217, 232, 0.2);
+      border-radius: 12px;
+      color: white;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .report-form input:focus,
+    .report-form select:focus,
+    .report-form textarea:focus {
+      border-color: #ff2a6d;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .report-form textarea {
+      grid-column: span 2;
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .report-submit {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #ff2a6d, #d1005b);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .report-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 42, 109, 0.4);
+    }
+    
+    .message {
+      grid-column: span 2;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 10px 0;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .success {
+      background: rgba(76, 175, 80, 0.1);
+      border: 2px solid #4CAF50;
+      color: #4CAF50;
+    }
+    
+    .error {
+      background: rgba(244, 67, 54, 0.1);
+      border: 2px solid #f44336;
+      color: #f44336;
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 40px;
+      padding-top: 30px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .channel-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    .channel-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    }
+    
+    .copyright {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    
+    /* ===== WHATSAPP NOTIFICATION MODAL ===== */
+    .whatsapp-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-content {
+      background: rgba(20, 20, 30, 0.95);
+      border-radius: 25px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      border: 3px solid #25D366;
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 28px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    
+    .modal-icon {
+      font-size: 4rem;
+      color: #25D366;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .modal-title {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 15px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+    }
+    
+    .modal-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    
+    .modal-btn {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      margin: 10px 0;
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .modal-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    }
+    
+    .modal-dont-show {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.6);
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 20px;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-dont-show:hover {
+      color: white;
+    }
+    
+    /* ===== LOADING STATE ===== */
+    .loading {
+      grid-column: span 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(5, 217, 232, 0.3);
+      border-radius: 50%;
+      border-top-color: #05d9e8;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ===== RESPONSIVE DESIGN ===== */
+    
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .tool-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+        gap: 18px;
+      }
+      
+      .tool-card {
+        height: 200px;
+      }
+      
+      .tool-icon-container {
+        width: 90px;
+        height: 90px;
+      }
+      
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    
+    /* MOBILE - 4 CARDS PER ROW (EXACTLY LIKE SCREENSHOT) */
+    @media (max-width: 767px) {
+      .main-container {
+        padding: 5px;
+      }
+      
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+      }
+      
+      .search-section {
+        padding: 0 5px;
+      }
+      
+      /* MOBILE: 4 CARDS PER ROW */
+      .tool-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 cards per row on mobile */
+        gap: 12px;
+        padding: 0 5px;
+      }
+      
+      /* MOBILE: SAME CARD SIZE AS SCREENSHOT */
+      .tool-card {
+        height: 170px; /* Adjusted for mobile */
+        padding: 20px 10px;
+        border-radius: 15px;
+      }
+      
+      /* BIG ICONS ON MOBILE - MATCHING SCREENSHOT */
+      .tool-icon-container {
+        width: 70px; /* Big icon container */
+        height: 70px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        padding: 15px;
+      }
+      
+      .tool-icon {
+        width: 50px; /* Big icon */
+        height: 50px;
+      }
+      
+      .tool-name {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      
+      .category-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        padding-left: 8px;
+      }
+      
+      .report-section {
+        padding: 25px;
+        margin: 40px 5px;
+      }
+      
+      .report-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .report-form textarea,
+      .report-submit,
+      .message {
+        grid-column: 1;
+      }
+      
+      .modal-content {
+        padding: 30px 20px;
+      }
+      
+      .modal-title {
+        font-size: 1.5rem;
+      }
+      
+      .modal-text {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .tool-grid {
+        grid-template-columns: repeat(4, 1fr); /* Still 4 columns */
+        gap: 10px;
+      }
+      
+      .tool-card {
+        height: 160px;
+        padding: 15px 8px;
+      }
+      
+      .tool-icon-container {
+        width: 65px;
+        height: 65px;
+        padding: 12px;
+      }
+      
+      .tool-icon {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .tool-name {
+        font-size: 0.9rem;
+      }
+      
+      .main-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    /* Very Small Mobile */
+    @media (max-width: 360px) {
+      .tool-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      
+      .tool-card {
+        height: 150px;
+        padding: 12px 6px;
+      }
+      
+      .tool-icon-container {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .tool-icon {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .tool-name {
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Card animations */
+    .tool-card {
+      animation: fadeInUp 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Staggered animation delays */
+    .tool-card:nth-child(1) { animation-delay: 0.1s; }
+    .tool-card:nth-child(2) { animation-delay: 0.2s; }
+    .tool-card:nth-child(3) { animation-delay: 0.3s; }
+    .tool-card:nth-child(4) { animation-delay: 0.4s; }
+    .tool-card:nth-child(5) { animation-delay: 0.5s; }
+    .tool-card:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Notification Modal -->
+  <div class="whatsapp-modal" id="whatsappModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeWhatsAppModal()">×</button>
+      <div class="modal-icon">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+      <h2 class="modal-title">Stay Updated!</h2>
+      <p class="modal-text">
+        Join our WhatsApp channel to get notifications about new tools, updates, and exclusive content. 
+        Never miss an important update!
+      </p>
+      <a href="https://whatsapp.com/channel/0029VbBWrHxDOQIa119G8545" target="_blank" class="modal-btn">
+        <i class="fab fa-whatsapp"></i>
+        Join WhatsApp Channel
+      </a>
+      <button class="modal-dont-show" onclick="dontShowAgain()">
+        Don't show this again
+      </button>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="main-title">DARK TECH ZONE</h1>
+      <div class="subtitle">TOOLKIT</div>
+      <a href="admin.html" class="admin-btn">
+        <i class="fas fa-lock"></i> Admin Panel
+      </a>
+    </div>
+    
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." />
+      </div>
+    </div>
+    
+  
+    <!-- Report Section -->
+    <div class="report-section">
+      <h2 class="report-title"><i class="fas fa-flag"></i> Report & Suggestions</h2>
+      <div class="message" id="reportMessage"></div>
+      <form class="report-form" id="reportForm">
+        <input type="text" id="reportName" placeholder="Your Name (Optional)" />
+        <input type="email" id="reportEmail" placeholder="Your Email (Optional)" />
+        <select id="reportType">
+          <option value="">Select Report Type</option>
+          <option value="broken">Broken Link</option>
+          <option value="suggestion">Tool Suggestion</option>
+          <option value="bug">Website Bug</option>
+          <option value="feature">Feature Request</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" id="reportTool" placeholder="Tool Name (If applicable)" />
+        <textarea id="reportDescription" placeholder="Describe the issue or suggestion..."></textarea>
+        <button type="submit" class="report-submit">
+          <i class="fas fa-paper-plane"></i> Submit Report
+        </button>
+      </form>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://whatsapp.com/channel/0029VbBWrHxDOQIa119G8545" target="_blank" class="channel-btn">
+        <i class="fab fa-whatsapp"></i>
+        Join Our WhatsApp Channel
+      </a>
+      <div class="copyright">
+        © 2024 Dark Tech Zone Toolkit | All tools are carefully curated<br>
+        Design inspired by modern toolkits
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script>
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBFAJHOZiCOx-Axi_yIXPzNYLe2payowMg",
+      authDomain: "dark-zone-toolkit.firebasestorage.app",
+      projectId: "dark-zone-toolkit",
+      storageBucket: "dark-zone-toolkit.firebasestorage.app",
+      messagingSenderId: "81877953322",
+      appId: "1:81877953322:web:940865bf3ad1ec25e90c53",
+      measurementId: "G-4CXWPEGTHW"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.firestore();
+
+    let tools = [];
+
+    // Show WhatsApp Modal with delay
+    function showWhatsAppModal() {
+      // Check if user has chosen "Don't show again"
+      if (localStorage.getItem('dontShowWhatsApp') === 'true') {
+        return;
+      }
+      
+      // Show modal after 2 seconds
+      setTimeout(() => {
+        document.getElementById('whatsappModal').style.display = 'flex';
+      }, 2000);
+    }
+
+    function closeWhatsAppModal() {
+      document.getElementById('whatsappModal').style.display = 'none';
+    }
+
+    function dontShowAgain() {
+      localStorage.setItem('dontShowWhatsApp', 'true');
+      closeWhatsAppModal();
+    }
+
+    // Load tools from Firestore
+    async function loadTools() {
+      try {
+        const querySnapshot = await db.collection('tools').orderBy('createdAt', 'desc').get();
+        
+        tools = [];
+        querySnapshot.forEach((doc) => {
+          const toolData = doc.data();
+          tools.push({ 
+            id: doc.id, 
+            ...toolData,
+            name: toolData.name || 'Unnamed Tool',
+            url: toolData.url || '#',
+            icon: toolData.icon || '',
+            category: toolData.category || 'Other'
+          });
+        });
+        
+        renderToolsByCategory();
+        showWhatsAppModal(); // Show modal after tools load
+      } catch (error) {
+        console.error("Error loading tools:", error);
+        showError();
+      }
+    }
+
+    // Render tools by category
+    function renderToolsByCategory() {
+      const categories = {
+        'HOSTING': document.getElementById('hostingGrid'),
+        'SOURCE': document.getElementById('sourceGrid'),
+        'DATABASE': document.getElementById('databaseGrid'),
+        'Other': document.getElementById('otherGrid')
+      };
+
+      // Clear all grids
+      Object.values(categories).forEach(grid => {
+        grid.innerHTML = '';
+      });
+
+      // Group tools by category
+      const toolsByCategory = {};
+      Object.keys(categories).forEach(cat => {
+        toolsByCategory[cat] = [];
+      });
+
+      tools.forEach(tool => {
+        const category = tool.category.toUpperCase();
+        if (category in toolsByCategory) {
+          toolsByCategory[category].push(tool);
+        } else {
+          toolsByCategory['Other'].push(tool);
+        }
+      });
+
+      // Render each category
+      Object.keys(categories).forEach(category => {
+        const grid = categories[category];
+        const categoryTools = toolsByCategory[category];
+
+        if (categoryTools.length === 0) {
+          if (category === 'Other') return; // Don't show empty "Other" section
+          grid.innerHTML = `
+            <div style="grid-column: span 4; text-align: center; padding: 40px; color: rgba(255,255,255,0.3);">
+              <i class="fas fa-tools"></i>
+              <div style="margin-top: 10px;">No tools in this category</div>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        categoryTools.forEach(tool => {
+          const iconUrl = tool.icon || getDefaultIcon(tool.name);
+          
+          html += `
+            <a href="${tool.url}" class="tool-card" target="_blank" onclick="incrementViews('${tool.id}')">
+              <div class="tool-icon-container">
+                <img src="${iconUrl}" class="tool-icon" 
+                     onerror="this.src='${getDefaultIcon(tool.name)}'; this.onerror=null;"
+                     alt="${tool.name}">
+              </div>
+              <div class="tool-name">${tool.name}</div>
+            </a>
+          `;
+        });
+        
+        grid.innerHTML = html;
+        
+        // Add staggered animation
+        grid.querySelectorAll('.tool-card').forEach((card, index) => {
+          card.style.animationDelay = `${index * 0.1}s`;
+        });
+      });
+    }
+
+    // Get default icon
+    function getDefaultIcon(name) {
+      const colors = ['ff2a6d', '05d9e8', '25D366'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0a0a12&color=${color}&bold=true&size=200`;
+    }
+
+    // Increment view count
+    async function incrementViews(toolId) {
+      try {
+        await db.collection('tools').doc(toolId).update({
+          views: firebase.firestore.FieldValue.increment(1),
+          lastAccessed: new Date().toISOString()
+        });
+      } catch (error) {
+        console.error("Error incrementing views:", error);
+      }
+    }
+
+    // Show error state
+    function showError() {
+      const grids = ['hostingGrid', 'sourceGrid', 'databaseGrid', 'otherGrid'];
+      grids.forEach(gridId => {
+        const grid = document.getElementById(gridId);
+        grid.innerHTML = `
+          <div style="grid-column: span 4; text-align: center; padding: 30px;">
+            <div style="color: #ff2a6d; margin-bottom: 10px;">
+              <i class="fas fa-exclamation-triangle"></i> Connection Error
+            </div>
+            <button onclick="loadTools()" style="padding: 8px 20px; background: #ff2a6d; color: white; border: none; border-radius: 8px; cursor: pointer;">
+              Retry
+            </button>
+          </div>
+        `;
+      });
+    }
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      if (searchTerm.length === 0) {
+        renderToolsByCategory();
+        return;
+      }
+
+      const filtered = tools.filter(tool => 
+        tool.name.toLowerCase().includes(searchTerm) ||
+        (tool.category && tool.category.toLowerCase().includes(searchTerm))
+      );
+
+      // Show all filtered tools in one section
+      const allGrids = document.querySelectorAll('.tool-grid');
+      allGrids.forEach(grid => {
+        grid.innerHTML = '';
+      });
+
+      // Use the first grid to show search results
+      const firstGrid = document.querySelector('.tool-grid');
+      if (firstGrid && filtered.length > 0) {
+        let html = '';
+        filtered.forEach(tool => {
+          const iconUrl = tool.icon || getDefaultIcon(tool.name);
+          
+          html += `
+            <a href="${tool.url}" class="tool-card" target="_blank" onclick="incrementViews('${tool.id}')">
+              <div class="tool-icon-container">
+                <img src="${iconUrl}" class="tool-icon" 
+                     onerror="this.src='${getDefaultIcon(tool.name)}'; this.onerror=null;"
+                     alt="${tool.name}">
+              </div>
+              <div class="tool-name">${tool.name}</div>
+              <div style="font-size: 0.8rem; color: #05d9e8; margin-top: 5px;">${tool.category}</div>
+            </a>
+          `;
+        });
+        
+        // Clear other category titles
+        document.querySelectorAll('.category-title').forEach(title => {
+          title.style.display = 'none';
+        });
+        
+        // Show search results title
+        const searchTitle = document.createElement('h2');
+        searchTitle.className = 'category-title';
+        searchTitle.textContent = `Search Results (${filtered.length})`;
+        searchTitle.style.display = 'block';
+        
+        firstGrid.parentElement.prepend(searchTitle);
+        firstGrid.innerHTML = html;
+      }
+    });
+
+    // Report form submission
+    document.getElementById('reportForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const reportData = {
+        name: document.getElementById('reportName').value.trim(),
+        email: document.getElementById('reportEmail').value.trim(),
+        type: document.getElementById('reportType').value,
+        tool: document.getElementById('reportTool').value.trim(),
+        description: document.getElementById('reportDescription').value.trim(),
+        status: 'pending',
+        createdAt: new Date().toISOString(),
+        ip: await getIPAddress()
+      };
+
+      // Validate
+      if (!reportData.type) {
+        showMessage('Please select a report type', 'error');
+        return;
+      }
+
+      if (!reportData.description) {
+        showMessage('Please describe your issue or suggestion', 'error');
+        return;
+      }
+
+      try {
+        await db.collection('reports').add(reportData);
+        showMessage('Thank you! Your report has been submitted.', 'success');
+        document.getElementById('reportForm').reset();
+      } catch (error) {
+        console.error('Error submitting report:', error);
+        showMessage('Error submitting report. Please try again.', 'error');
+      }
+    });
+
+    // Get IP address
+    async function getIPAddress() {
+      try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+      } catch (error) {
+        return 'unknown';
+      }
+    }
+
+    // Show message
+    function showMessage(text, type) {
+      const messageElement = document.getElementById('reportMessage');
+      messageElement.textContent = text;
+      messageElement.className = `message ${type}`;
+      messageElement.style.display = 'block';
+      
+      setTimeout(() => {
+        messageElement.style.display = 'none';
+      }, 5000);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTools();
+      
+      // Real-time updates
+      db.collection('tools').onSnapshot((snapshot) => {
+        tools = [];
+        snapshot.forEach((doc) => {
+          const toolData = doc.data();
+          tools.push({ 
+            id: doc.id, 
+            ...toolData,
+            name: toolData.name || 'Unnamed Tool',
+            url: toolData.url || '#',
+            icon: toolData.icon || '',
+            category: toolData.category || 'Other'
+          });
+        });
+        renderToolsByCategory();
+      });
+      
+      // Focus search on '/' key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== document.getElementById('searchInput')) {
+          e.preventDefault();
+          document.getElementById('searchInput').focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
